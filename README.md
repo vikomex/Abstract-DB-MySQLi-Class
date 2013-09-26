@@ -34,7 +34,7 @@ function insertUser()
 	'password' => 'password'
 	);
 
-$this->insert('users', $insertData)';
+$this->insert('users', $insertData);
 
 }
 ```
@@ -55,26 +55,50 @@ return $results;
 ### Update Query
 
 ```php
-function updateUser($id)
-{
-
 $updateData = array(
 	'fieldOne' => 'fieldValue',
 	'fieldTwo' => 'fieldValue'
 );
 
-$this->where('id', $id)->update('users', $updateData);
+$this->where('id', int)->update('users', $updateData);
 
-}
 ```
 
 ### Delete Query
 
 ```php
-function deleteUser($id)
-{
-
-$this->where('id', $id)->delete('users', $updateData);
-
-}
+$this->where('id', int)->delete('users', $updateData);
 ```
+
+### Generic Query Method
+
+```php
+
+$results = $this->query('SELECT * from posts');
+
+print_r($results); 
+```
+
+### Raw Query Method
+
+```php
+$params = array(3, 'My Title');
+$results = $this->rawQuery("SELECT id, title, body FROM posts WHERE id = ? AND tile = ?", $params);
+print_r($results);
+
+// will handle any SQL query
+
+$params = array(10, 1, 10, 11, 2, 10);
+$results = $this->rawQuery("(SELECT a FROM t1 WHERE a = ? AND B = ? ORDER BY a LIMIT ?) UNION(SELECT a FROM t2 WHERE a = ? AND B = ? ORDER BY a LIMIT ?)", $params);
+print_r($results);
+```
+
+
+### Where Method
+This method allows you to specify the parameters of the query.
+
+```php
+$results = $this->where('id', int)->where('title', string)->get('tableName');
+print_r($results); 
+```
+
