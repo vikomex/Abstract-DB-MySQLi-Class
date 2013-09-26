@@ -1,7 +1,7 @@
 <?php
 /*************************************************
  *	
- *	@author: David Victoria / Sergio Gonzaléz | http://www.twitter.com/vikomex / http://www.twitter.com/sg_imx
+ *	@author: David Victoria / Sergio González | http://www.twitter.com/vikomex / http://www.twitter.com/sg_imx
  *	@date: September 26, 2013.
  *	@version: 1.0
  *	@class: 	DB
