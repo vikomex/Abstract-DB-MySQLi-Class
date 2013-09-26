@@ -1,0 +1,2 @@
+Abstract-DB-MySQLi-Class
+========================
